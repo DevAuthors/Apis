@@ -10,7 +10,7 @@ UserInput.onchange = e => {
 
 Socket.on('evt', Data => {
   if(Data.type === 'console'){
-    console.log(Data.msg);
+    console.log(Data.id + '>>' +Data.msg);
   }
 });
 
