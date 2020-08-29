@@ -10,6 +10,10 @@ header {
   cursor: move;
   width: 92%;
   margin: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .chat-icon {
@@ -22,8 +26,5 @@ header {
 .chat-title {
   color: #029;
   display: inline-block;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  font-size: 1.5pc;
 }
