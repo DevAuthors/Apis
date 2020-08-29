@@ -1,0 +1,26 @@
+main {
+  position: fixed;
+  width: 20pc;
+  height: 5em;
+  background-color: #E67E22;
+}
+
+header {
+  cursor: move;
+}
+
+.chat-icon {
+  display: inline-flex;
+}
+.Chat {
+  display: inline-block;
+  height: 1pc;
+}
+.chat-title {
+  color: #029;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

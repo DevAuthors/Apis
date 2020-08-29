@@ -14,10 +14,11 @@ Socket.on('evt', Data => {
   }
 });
 
-function Emit(type, msg) {
+function Emit(type, msg, extraData) {
   Socket.emit('evt', {
     type: type,
     msg: msg,
+    extraData: extraData || null,
     id: Socket.id
   });
 }
