@@ -3,10 +3,13 @@ main {
   width: 20pc;
   height: 5em;
   background-color: #E67E22;
+  border-radius: 20px;
 }
 
 header {
   cursor: move;
+  width: 92%;
+  margin: auto;
 }
 
 .chat-icon {
