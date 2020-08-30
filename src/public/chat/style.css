@@ -1,9 +1,11 @@
 main {
   position: fixed;
   width: 20pc;
-  height: 5em;
+  height: 30em;
   background-color: #E67E22;
   border-radius: 20px;
+
+  transition: height 1s;
 }
 
 header {
@@ -14,6 +16,16 @@ header {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+footer {
+  position: absolute;
+	bottom: 0px;
+	left: 45%;
+}
+.arrow {
+	transition: transform 1s;
+	transform: rotate(180deg);
 }
 
 .chat-icon {
@@ -27,4 +39,12 @@ header {
   color: #029;
   display: inline-block;
   font-size: 1.5pc;
+}
+.body {
+	height: 26.5em;
+}
+.input {
+	position: absolute;
+	bottom: 1.7pc;
+	left: 2.5pc;
 }
