@@ -56,9 +56,8 @@ footer {
 	background: rgba(255,255,255,.1);
 	border-radius: 30px;
 }
-msg {
+.msg {
 	position: absolute;
-	bottom: 16px;
 	left: 1%;
 	width: 98%;
 	height: 20px;
@@ -67,10 +66,10 @@ msg {
 user {
 	color: darkred;
 }
-msg{
+.msg{
 	font-family: cursive;
 }
-msg.public.other {
+.msg.public.other {
 	background: rgba(0,255,0,.4);
 }
 

@@ -8,7 +8,8 @@ const Msgs = document.querySelector('.msgs');
 UI.ArrowBtn = document.querySelector('.arrow');
 UI.Main = document.querySelector('main');
 // const _ = document.querySelector('');
-
+let TotalMsg = 0;
+const AllMsg = [];
 // UI
 UI.ArrowBtn.onclick = () => {
   if(UI.openChat){
@@ -65,11 +66,20 @@ function createMsg(User, Msg, public, me){
   mm.appendChild(document.createTextNode(''));
   Msgs.appendChild(mm);
   mm.outerHTML = `
-<msg class="${public? "public" : "private"} ${me? "me" : "other"}" id="${MyInfo.id}">
+<div
+  style="bottom: 16px;"
+  class="msg ${public? "public" : "private"} ${me? "me" : "other"}"
+  id="${MyInfo.id}">
   <user>${User}</user>
 	<span> ${me?"<<":'>>'} </span>
   <txt>${Msg}</txt>
-</msg>`;
+</div>`;
+  AllMsg.unshift(mm);
+  TotalMsg++;
+  const AllMsgs = document.querySelectorAll('.msg');
+  for(i = AllMsgs - 1; i >= 0; i--){
+    AllMsgs[i].style = "bottom: " + (20 * (i) + 16) +"px;";
+  }
 }
 Socket.on('req', Data => {
   console.log(Data);
