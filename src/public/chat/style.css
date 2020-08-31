@@ -47,6 +47,33 @@ footer {
   font-size: 2rem;
 }
 
+.msgs {
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	width: 90%;
+	height: 84%;
+	background: rgba(255,255,255,.1);
+	border-radius: 30px;
+}
+msg {
+	position: absolute;
+	bottom: 16px;
+	left: 1%;
+	width: 98%;
+	height: 20px;
+	background: rgba(0,255,0,.4);
+}
+user {
+	color: darkred;
+}
+msg span {
+	font-family: cursive;
+}
+msg.public.other {
+	background: rgba(0,255,0,.4);
+}
+
 /* USER INPUT */
 .input {
   position: absolute;

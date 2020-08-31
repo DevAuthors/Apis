@@ -31,7 +31,7 @@ const MyInfo = {
 
 
 UserInput.onchange = e => {
-  Emit('console', UserInput.value);
+  sendMsg(UserInput.value, false);
 }
 
 function sendMsg(Msg, private, To){
@@ -48,18 +48,29 @@ Socket.on('evt', Data => {
   }else
   if(Data.type === 'msg'){
     if(Data.extraData.type === 'public'){
-      console.log(Data.sendFrom.Name + '>>' + Data.msg);
+      console.log(Data.extraData.sendFrom.Username + ' >> ' + Data.msg);
+      createMsg(Data.extraData.sendFrom.Username, Data.msg, true, false);
     }else
     if(Data.extraData.type === 'private'){
       if(MyInfo.Name === Data.extraData.sendTo){
-        console.log(Data.extraData.sendFrom.Name + '>>' + Data.msg);
+        console.log(Data.extraData.sendFrom.Username + ' >> ' + Data.msg);
       }
     }
   }else{
     throw new Error('unspecified event type');
   }
 });
-
+function createMsg(User, Msg, public, me){
+  const mm = document.createElement('msg');
+  mm.appendChild(document.createTextNode(''));
+  Msgs.appendChild(mm);
+  mm.outerHTML = `
+<msg class="${public? "public" : "private"} ${me? "me" : "other"}" id="${MyInfo.id}">
+  <user>${User}</user>
+	<span> ${me?"<<":'>>'} </span>
+  <txt>${Msg}</txt>
+</msg>`;
+}
 Socket.on('req', Data => {
   console.log(Data);
 });
