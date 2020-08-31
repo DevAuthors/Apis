@@ -67,7 +67,7 @@ msg {
 user {
 	color: darkred;
 }
-msg span {
+msg{
 	font-family: cursive;
 }
 msg.public.other {
