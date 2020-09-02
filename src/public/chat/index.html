@@ -12,7 +12,7 @@
         <div class="chat-icon">
           <img src="https://img.icons8.com/material-outlined/24/000000/chat.png"/>
         </div>
-        
+
         <div class="chat-title">
           Global Chat
           <span style="color: #000; font-size:0.7pc;">By: DevAuthors</span>
@@ -36,8 +36,22 @@
         </div>
       </footer>
 
+      <div class="alerts">
+        <div class="SeeMsgs alert">
+          <div class="Text">
+            <span>There are old messages</span>
+          </div>
+          <div class="buttons">
+            <button class="accept" onclick="see()">See</button>
+            <button class="rechase" onclick="closeAlert()">Close</button>
+          </div>
+        </div>
+      </div>
+
     </main>
-    <script src="../socket.io/socket.io.js" charset="utf-8"></script>
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+    <script src="./ui.js" charset="utf-8"></script>
     <script src="./Main.js" charset="utf-8"></script>
+    <script src="./Reciver.js" charset="utf-8"></script>
   </body>
 </html>

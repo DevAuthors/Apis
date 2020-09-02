@@ -22,18 +22,18 @@ const chat = {
 };
 
 const Pass = 'No Hack DevAuthors pls :)';
+
 io.on('connect', socket => {
   chat.integrants[socket.id] = socket;
   socket.on('evt', Data => {
     io.sockets.emit('evt', Data);
   });
-  socket.on('req', Data => {
-    if(Data === Pass){
-      Data = {};
+  socket.on('req', Dat => {
+    const Data = {};
+    if(Dat === Pass){
       Data.answer = chat;
       Data.error = false;
     }else{
-      Data = {};
       Data.error = true;
       Data.hacker = socket.id;
     }
