@@ -26,20 +26,28 @@ const Pass = 'No Hack DevAuthors pls :)';
 io.on('connect', socket => {
   chat.integrants[socket.id] = socket;
   socket.on('evt', Data => {
+    if(Data.type === "msg"){
+      chat.msgs.push(Data);
+    }else
+    if(Data.type === "msgs"){
+      Data = {
+        type: 'msgs',
+        p:chat.msgs
+      };
+    }
     io.sockets.emit('evt', Data);
   });
-  socket.on('req', Dat => {
-    const Data = {};
-    if(Dat === Pass){
-      Data.answer = chat;
-      Data.error = false;
-    }else{
-      Data.error = true;
-      Data.hacker = socket.id;
+  socket.on('req', pass => {
+    try{
+      if(pass === Pass){
+        io.sockets.emit('req', {
+          type: 'msgs',
+          p:chat.msgs
+        });
+      }
+    }catch(e){
+      console.log(e);
     }
-    Data.id = socket.id
-    console.log(Data)
-    io.sockets.emit('req', Data);
   });
   socket.on('exect', Data => {
     if(Data.Pass === Pass){

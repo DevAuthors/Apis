@@ -11,10 +11,14 @@ const MyInfo = {
   pass: '0000'
 };
 
+let TotalMsg = 0;
+let AllMsg = new Array();
+
 setTimeout(() => {
-  MyInfo.id = Socket.id;
+  MyInfo.id = window.localStorage.getItem('id') || Socket.id;
+  window.localStorage.setItem('id', MyInfo.id);
   console.clear();
-}, 200);
+}, 500);
 
 UserInput.onchange = e => {
   sendMsg(UserInput.value, false);
@@ -45,14 +49,11 @@ function createMsg(User, Msg, public, me){
     mm.outerHTML = i[0] + b * 20 + i[1];
   });
 }
-Socket.on('req', Data => {
-  console.log(Data);
-});
 
 function getURLParam(name){
   return new URL(window.location.href).searchParams.get(name) || null;
 }
-function Emit(type, msg, extraData, request) {
+function Emit(type, msg, extraData) {
   Socket.emit('evt', {
     type: type,
     msg: msg,

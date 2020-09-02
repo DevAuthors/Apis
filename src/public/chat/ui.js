@@ -8,8 +8,7 @@ UI.Main = document.querySelector('main');
 
 const Alerts = document.querySelector('.alerts');
 // const _ = document.querySelector('');
-let TotalMsg = 0;
-const AllMsg = [];
+
 // UI
 UI.ArrowBtn.onclick = () => {
   if(UI.openChat){
@@ -23,7 +22,7 @@ UI.ArrowBtn.onclick = () => {
 // ALERTS
 
 function see(){
-  console.log('see');
+  Emit('msgs', "")
   closeAlert();
 }
 function closeAlert(){
