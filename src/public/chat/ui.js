@@ -20,11 +20,43 @@ UI.ArrowBtn.onclick = () => {
 }
 
 // ALERTS
-
 function see(){
   Emit('msgs', "")
   closeAlert();
 }
 function closeAlert(){
   Alerts.removeChild(document.querySelector('.SeeMsgs'));
+}
+
+
+function isMobile(Details){
+  const Devices = [];
+  let ended = false;
+  let Answer;
+  Devices.map((a) => {
+    if(ended){return;}else{
+      if(navigator.userAgent.match(a)){
+        if(Details){
+          Answer = {
+            is: true,
+            Device: (/[a-zA-Z ]+/i).exec(a.toString())
+          };
+        }else{
+          Answer = true;
+        }
+        ended = true;
+      }
+    }
+  });
+  if(!ended){
+    if(Details){
+      Answer = {
+        is: false,
+        Device: null
+      };
+    }else{
+      Answer = false;
+    }
+  };
+  return Answer;
 }
